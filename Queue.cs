@@ -4,33 +4,33 @@ namespace DataStructures
 {
     class Queue
     {
-        private Node first, last;
+        private Node _first, _last;
 
         public void Enqueue(Object item)
         {
-            if (first == null)
+            if (_first == null)
             {
-                last = new Node((int)item);
-                first = last;
+                _last = new Node((int)item);
+                _first = _last;
             }
             else
             {
-                last.Next = new Node((int)item);
-                last = last.Next;
+                _last.Next = new Node((int)item);
+                _last = _last.Next;
             }
         }
 
         public Object Dequeue()
         {
-            if (first != null)
+            if (_first != null)
             {
-                Object item = first.Data;
-                first = first.Next;
+                Object item = _first.Data;
+                _first = _first.Next;
 
-                if (first == null)
+                if (_first == null)
                 {
                     // Queue is empty
-                    last = null;
+                    _last = null;
                 }
 
                 return item;
