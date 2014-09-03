@@ -9,16 +9,19 @@ namespace DataStructures
             Console.WriteLine(DateTime.Now.Millisecond);
             Console.WriteLine();
 
-            var stack = new Stack();
-            for (var loopCounter = 0; loopCounter < 100; loopCounter++)
-            {
-                stack.Push(loopCounter);
-                Console.WriteLine(stack.Peek());
-            }
+            var queue = new Queue();
 
             for (var loopCounter = 0; loopCounter < 100; loopCounter++)
             {
-                Console.WriteLine(stack.Pop().ToString());
+                queue.Enqueue(loopCounter);
+                Console.WriteLine(loopCounter);
+            }
+
+            Console.WriteLine();
+
+            for (var loopCounter = 0; loopCounter < 100; loopCounter++)
+            {
+                Console.WriteLine(queue.Dequeue().ToString());
             }
 
             Console.WriteLine();
