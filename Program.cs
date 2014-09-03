@@ -7,20 +7,21 @@ namespace DataStructures
         static void Main(string[] args)
         {
             Console.WriteLine(DateTime.Now.Millisecond);
+            Console.WriteLine();
 
-            var headNode = new Node(0);
-            
-            for (var loopCounter = 1; loopCounter <= 100; loopCounter++)
+            var stack = new Stack();
+            for (var loopCounter = 0; loopCounter < 100; loopCounter++)
             {
-                headNode.AppendToTail(loopCounter);
+                stack.Push(loopCounter);
+                Console.WriteLine(stack.Peek());
             }
 
-            Console.WriteLine(DateTime.Now.Millisecond);
+            for (var loopCounter = 0; loopCounter < 100; loopCounter++)
+            {
+                Console.WriteLine(stack.Pop().ToString());
+            }
 
-            Console.WriteLine(DateTime.Now.Millisecond);
-
-            headNode.DeleteNode(headNode, 100);
-
+            Console.WriteLine();
             Console.WriteLine(DateTime.Now.Millisecond);
 
             var dummy = Console.ReadLine();

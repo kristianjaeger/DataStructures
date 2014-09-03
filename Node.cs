@@ -2,12 +2,12 @@
 {
     class Node
     {
-        private Node _next = null;
-        private int _data;
+        public Node Next = null;
+        public int Data;
 
         public Node(int number)
         {
-            _data = number;
+            Data = number;
         }
 
         public void AppendToTail(int number)
@@ -15,34 +15,56 @@
             var end = new Node(number);
             var node = this;
 
-            while (node._next != null)
+            while (node.Next != null)
             {
-                node = node._next;
+                node = node.Next;
             }
 
-            node._next = end;
+            node.Next = end;
         }
 
         public Node DeleteNode(Node headNode, int number)
         {
             var node = headNode;
 
-            if (node._data == number)
+            if (node.Data == number)
             {
-                return headNode._next;
+                return headNode.Next;
             }
 
-            while (node._next != null)
+            while (node.Next != null)
             {
-                if (node._next._data == number)
+                if (node.Next.Data == number)
                 {
-                    node._next = node._next._next;
+                    node.Next = node.Next.Next;
                     return headNode;
                 }
-                node = node._next;
+                node = node.Next;
             }
 
             return headNode;
         }
+
+        /* 
+         * Example Main method code:
+         *  Console.WriteLine(DateTime.Now.Millisecond);
+
+            var headNode = new Node(0);
+            
+            for (var loopCounter = 1; loopCounter <= 100; loopCounter++)
+            {
+                headNode.AppendToTail(loopCounter);
+            }
+
+            Console.WriteLine(DateTime.Now.Millisecond);
+
+            Console.WriteLine(DateTime.Now.Millisecond);
+
+            headNode.DeleteNode(headNode, 100);
+
+            Console.WriteLine(DateTime.Now.Millisecond);
+
+            var dummy = Console.ReadLine();
+         */
     }
 }
